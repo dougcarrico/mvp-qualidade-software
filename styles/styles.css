@@ -1,0 +1,256 @@
+:root {
+    --white: #fff;
+    --primary-1: #1b68a7;
+    --primary-1-hover: #145386;
+    --primary-1-pressed: #0f3c61;
+    --neutral-1: #DEDEDE;
+    --neutral-1-hover: #ADADAD;
+    --neutral-1-pressed: #585858;
+    --black: #303030;
+    --error: #f83030;
+    --success: #33aa3f;
+}
+
+/* Classe da fonte Roboto, caso queira utilizar diretamente em um elemento ou copiar informações
+100 = Thin; 200 = ExtraLight; 300 = Light; 
+400 = Regular; 500 = Medium; SemiBold = 600; 
+Bold = 700; Extrabold = 800; Black = 900;
+*/
+.roboto-400 {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+/* Classe da fonte Quicksand, caso queira utilizar diretamente em um elemento ou copiar informações
+300 = Light; 400 = Regular; 500 = Medium; SemiBold = 600; Bold = 700;
+*/
+.quicksand-400 {
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 14px;
+    font-style: normal;
+    color: var(--primary-2);
+    text-align: left;
+    background-color: var(--white);
+    margin: 0;
+    padding: 0px 16px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button {
+    background-color: var(--primary-1);
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: 14px;
+    font-style: normal;
+    color: var(--neutral-1);
+
+    border: 0;
+    border-radius: 4px;
+    padding: 0px 20px;
+    height: 40px;
+    box-sizing: border-box;
+}
+
+.button:hover {
+    background-color: var(--primary-1-hover);
+    cursor: pointer;
+}
+
+.button:active {
+    background-color: var(--primary-1-pressed);
+}
+
+.button-outline {
+    background-color: var(--neutral-1);
+    border: 2px solid var(--primary-1);
+    color: var(--primary-1);
+}
+
+.button-outline:hover {
+    background-color: var(--neutral-1-hover);
+}
+
+.button-outline:active {
+    background-color: var(--neutral-1-pressed);
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+label {
+    font-weight: 500;
+}
+
+input, select {
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 14px;
+    font-style: normal;
+    
+    background-color: var(--white);
+    border: 1px solid var(--neutral-1);
+    height: 32px;
+    box-sizing: border-box;
+    border-radius: 2px;
+    padding: 8px;
+
+}
+
+input:hover {
+  border-color: var(--primary-1);
+}
+
+input:active{
+  border-color: var(--primary-1);
+}
+
+input::placeholder{
+    color: var(--neutral-1-hover);
+}
+
+.pacient-info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    max-width: 300px;
+    padding: 32px;
+    flex-wrap: wrap;
+}
+
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    font-size: 20px;
+}
+
+.modal-backdrop {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+
+    align-items: center;
+    justify-content: center;
+}
+
+.modal {
+    position: absolute;
+    background-color: var(--neutral-1);
+    margin: 0 auto;
+    width: 80%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.modal-large {
+    width: 95%;
+    max-width: 1280px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 16px;
+}
+
+.modal-body {
+    display: flex;
+    padding: 16px 16px;
+}
+
+.modal-footer {
+    display: flex;
+    padding: 16px 16px;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.edit-input-group {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+}
+
+#edit-name-input {
+    width: 100%;
+}
+
+#edit-quantity-input {
+    width: 120px;
+}
+
+#edit-type-input {
+    width: 160px;
+}
+
+.close-modal-button {
+    fill: var(--primary-1);
+}
+
+.close-modal-button:hover {
+    fill: var(--primary-1-hover);
+    cursor: pointer;
+}
+
+#toast-wrapper {
+    position: fixed;
+    bottom: -32px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px 16px;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+.toast-success {
+    background-color: var(--success);
+    color: var(--white);
+    padding: 16px;
+    border-radius: 8px;
+    transform: translateY(-32px);
+}
+
+.toast-error {
+    background-color: var(--error);
+    color: var(--white);
+    padding: 16px;
+    border-radius: 8px;
+    transform: translateY(-32px);
+}
+
