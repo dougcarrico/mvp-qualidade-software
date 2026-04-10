@@ -64,7 +64,7 @@ const createFormData = () => {
 
 const postForm = (formData) => {
     
-    let url = 'http://127.0.0.1:5000/product';
+    let url = 'http://127.0.0.1:5000/avaliation';
 
     let responseData;
     let responseStatus;
@@ -88,7 +88,11 @@ const postForm = (formData) => {
     })
         .then((data) => {
             if (responseOk) {
-                returnMessage.status = ok;
+                returnMessage.status = 'ok';
+                console.log(returnMessage);
+                console.log(responseData);
+                console.log(data)
+                showToast('success', `${returnMessage}`)
                 return returnMessage;
             }
             else {
