@@ -46,7 +46,6 @@ def predict(form: PacientSchema):
 
         #Carrega o modelo
         predictor = Predictor()
-        predictor.load_model()
 
         #Faz a predição
         prediction = predictor.predict(rescaled_x)

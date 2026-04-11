@@ -31,8 +31,6 @@ const getForm = () => {
     form.exerciseAngina = document.getElementById('exerciseAngina-input').value;
     form.oldpeak = document.getElementById('oldpeak-input').value;
     form.stSlope = document.getElementById('stSlope-input').value
-
-    console.log(form);
 }
 
 /*
@@ -43,7 +41,6 @@ const getForm = () => {
 const validateForm = () => {
     console.log('validando dados...');
     if (!form.age) {
-        console.log(form.age);
         return false;
     } else {
         return true;
@@ -57,8 +54,6 @@ const createFormData = () => {
     for ( let data in form) {
         formData.append(data, form[data]);
     }
-    console.log(formData);
-
     return formData
 }
 
@@ -69,11 +64,6 @@ const postForm = (formData) => {
     let responseData;
     let responseStatus;
     let responseOk;
-
-    let returnMessage = {
-        status: '',
-        message: ''
-    }
 
     fetch(url, {
         method: 'post',
@@ -88,17 +78,12 @@ const postForm = (formData) => {
     })
         .then((data) => {
             if (responseOk) {
-                returnMessage.status = 'ok';
-                console.log(returnMessage);
-                console.log(responseData);
-                console.log(data)
-                showToast('success', `${returnMessage}`)
-                return returnMessage;
+                showToast('success', `Dados recebidos`);
+                showOutcome(data.outcome);
             }
             else {
-                returnMessage.status = 'erro';
-                returnMessage.message = 'Erro ao enviar formulário'
-                return returnMessage;
+                showToast('error', `Erro ao enviar formulário`);
+                console.log('Erro ao enviar formulário');
             }    
         })
         .catch((error) => {
@@ -176,4 +161,27 @@ const closeToast = (toastID) => {
         toast.remove();
     }
 
+}
+
+/*
+-------------------------------------------------------------------- 
+Função para exibir resultado
+--------------------------------------------------------------------
+*/
+const showOutcome = (outcome) => {
+
+    /* Define atributos do toast e seu conteúdo */
+    let outcomeDiv = document.getElementById("outcome");
+
+    /* Adiciona classe sucesso no div */
+    outcomeDiv.classList.add('success');
+    
+    if (outcome == 1) {
+        outcomeDiv.textContent = 'Possui doença cardíaca';
+    } else {
+        outcomeDiv.textContent = 'Não possui doença cardíaca';
+    }
+
+
+    
 }

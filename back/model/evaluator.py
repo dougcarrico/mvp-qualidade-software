@@ -1,4 +1,5 @@
 from sklearn.metrics import accuracy_score
+from model.predictor import Predictor
 
 class Evaluator:
     
@@ -6,12 +7,11 @@ class Evaluator:
         """Inicializa o avaliador"""
         pass
 
-    def evaluate(self, model, X_test, Y_test):
-        """ Faz uma predição e avalia o modelo. Poderia parametrizar o tipo de
-        avaliação, entre outros.
+    def evaluate(self, model: Predictor, rescaled_X_test: any, y_test: any):
+        """ Faz uma predição e avalia o modelo. Deve fornecer um rescaled_x_test  e um y_test referente
         """
-        predictions = model.predict(X_test)
+        # Avalia o modelo
+        score = model.score(rescaled_X_test, y_test)
         
-        # Caso o seu problema tenha mais do que duas classes, altere o parâmetro average
-        return accuracy_score(Y_test, predictions)
+        return score
                 

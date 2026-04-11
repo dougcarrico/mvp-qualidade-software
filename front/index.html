@@ -12,15 +12,21 @@
     <!-- Folha de estilos -->
     <link rel="stylesheet" href="styles/styles.css">
 
-    <title>Predição de Insuficiência Cardiaca</title>
+    <title>Predição de doença cardiaca</title>
 </head>
 <body>
     <!-- Cabeçalho do Sistema-->
      <header>
         <div class="title">
-            <img src="images/logo.png" width="60px"> <span class="site-name">Predição de Insuficiência Cardiaca</span>
+            <img src="images/logo.png" width="60px"> <span class="site-name">Predição de doença cardiaca</span>
         </div>
      </header>
+
+     <section>
+        <p>Esta aplicação visa predizer se o paciente tem alguma doença cardiaca ou não baseada
+        em informações de resultados médicos.
+        </p>
+     </section>
      
      <!-- Campos para adição de um novo produto -->
      <section class="pacient-info">
@@ -88,54 +94,32 @@
         </div>
 
         <div class="input-group">
-            <label for="oldpeak-input">Depressão do segmento ST induzida por esforço em relação ao repouso</label>
+            <label for="oldpeak-input">Depressão do segmento ST (Oldpeak)</label>
             <input type="number" id="oldpeak-input" placeholder="0.0">
         </div> 
 
 
 
         <div class="input-group">
-            <label for="stSlope-input">Inclinação do segmento ST no pico do esforço</label>
+            <label for="stSlope-input">inclinação do segmento ST (ST Slope)</label>
             <select id="stSlope-input">
                 <option value="0">Ascendente</option>
                 <option value="1">Horizontal</option>
                 <option value="2">Descendente</option>
             </select>
         </div>
-
-        <button onclick="analise()" class="button">Avaliar</button>
      </section>
 
-   
-     <!-- Modal de edição -->
-     <div id="product-edit-modal" class="modal-backdrop">
-
-        <!-- Conteúdo do modal -->
-         <div class="modal">
-            <div class="modal-header"> 
-                <span class="modal-title">Editar produto</span> 
-                <span id="close-product-edit-modal" class="close-modal-button"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></span>
-            </div>
-
-            <div class="modal-body">
-                <div class="edit-input-group">
-                    <input type="text" id="edit-name-input" placeholder="Nome">
-                    <input type="number" id="edit-quantity-input" placeholder="Quantidade" min="0" step="5">
-                    <input type="text" id="edit-type-input" placeholder="Tipo">
-                </div>
-            </div>
-
-            <div class="modal-footer">
-                <button id="cancel-product-edit-modal" class="button button-outline">Cancelar</button>
-                <button id="confirm-product-edit-modal" class="button">Confirmar</button>
-            </div>
-         </div>
-
-     </div>
+     <section class="analisis-container">
+        <button onclick="analise()" class="button">Avaliar</button>
+        <div id="outcome-wrapper" class="outcome-style">
+            <h3>Resultado:</h3>
+            <p id="outcome">Clique em avaliar para gerar um resultado</p>
+        </div>
+     </section>
 
      <div id="toast-wrapper">
      </div>
-    
 
     <script src="scripts/script.js"></script>
 
