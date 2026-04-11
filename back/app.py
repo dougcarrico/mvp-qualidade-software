@@ -1,10 +1,15 @@
 from flask_openapi3 import OpenAPI, Info, Tag
 from flask import redirect
+from flask_cors import CORS
 from urllib.parse import unquote
 
-from model import *
-from schemas import *
-from flask_cors import CORS
+from model.evaluator import Evaluator
+from model.pacient import Pacient
+from model.predictor import Predictor
+from model.preprocessor import PreProcessor
+from schemas.pacient_schema import PacientSchema, OutcomeViewSchema
+from schemas.error_schema import ErrorSchema
+
 
 info = Info(title="API - Predição de Insuficiência Cardiaca", version="1.0.0")
 app = OpenAPI(__name__, info=info)
@@ -33,28 +38,24 @@ def home():
 ) 
 def predict(form: PacientSchema):
 
-    #dados do formulario
-    age = form.age
-    sex = form.sex
-    chestPainType = form.chestPainType
-    restingBP = form.restingBP
-    cholesterol = form.cholesterol
-    fastingBS = form.fastingBS
-    restingECG = form.restingECG
-    maxHR = form.maxHR
-    exerciseAngina = form.exerciseAngina
-    oldpeak = form.oldpeak
-    stSlope = form.stSlope
-
     try:
+        #preparando os dados para o modelo
+        preprocessor = PreProcessor()
+        x = preprocessor.prepare_form(form)
+        rescaled_x = preprocessor.scaler(x)
 
-        if (age > 30):
-            outcome = 1
-        else:
-            outcome = 0
+        #Carrega o modelo
+        predictor = Predictor()
+        predictor.load_model()
+
+        #Faz a predição
+        prediction = predictor.predict(rescaled_x)
+
+        #converte o dado de array para inteiro para retornar ao front
+        outcome = int(prediction[0])
 
     except Exception as e:
-        error_msg = "Não foi possível salvar novo item :/"
+        error_msg = f'Erro - {e}'
         return {"message": error_msg}, 400
     
     return {'outcome': outcome}, 200

@@ -6,14 +6,14 @@ class Predictor:
         """Inicializa o modelo"""
         self.model = None
     
-    def load_model(self, path):
+    def load_model(self):
         """Dependendo se o final for .pkl ou .joblib, carregamos de uma forma ou de outra
         """
-        self.model = pickle.load(open(path, 'rb'))
+        self.model = pickle.load(open('./data/model.pkl', 'rb'))
 
         return self.model
     
-    def preditor(self, X_input):
+    def predict(self, X_input):
         """Realiza a predição de um paciente com base no modelo treinado
         """
         if self.model is None:
