@@ -18,13 +18,12 @@
     <!-- Cabeçalho do Sistema-->
      <header>
         <div class="title">
-            <img src="images/logo.png" width="60px"> <span class="site-name">Predição de doença cardiaca</span>
+            <span class="site-name">Tem doença cardiaca?</span>
         </div>
      </header>
 
      <section>
-        <p>Esta aplicação visa predizer se o paciente tem alguma doença cardiaca ou não baseada
-        em informações de resultados médicos.
+        <p>Esta aplicação visa classificar se o paciente tem alguma doença cardiaca ou não. Preencha abaixo as informações obtidas com resultados de exames médicos.
         </p>
      </section>
      
@@ -59,11 +58,6 @@
         </div>
 
         <div class="input-group">
-            <label for="cholesterol-input">Colesterol (mm/dl)</label>
-            <input type="number" id="cholesterol-input" placeholder="200">
-        </div>
-
-        <div class="input-group">
             <label for="fastingBS-input">Glicemia de jejum acima de 120 mg/dl?</label>
             <select id="fastingBS-input">
                 <option value="1">Sim</option>
@@ -94,14 +88,14 @@
         </div>
 
         <div class="input-group">
-            <label for="oldpeak-input">Depressão do segmento ST (Oldpeak)</label>
+            <label for="oldpeak-input">Depressão do segmento ST</label>
             <input type="number" id="oldpeak-input" placeholder="0.0">
         </div> 
 
 
 
         <div class="input-group">
-            <label for="stSlope-input">inclinação do segmento ST (ST Slope)</label>
+            <label for="stSlope-input">Inclinação do segmento ST</label>
             <select id="stSlope-input">
                 <option value="0">Ascendente</option>
                 <option value="1">Horizontal</option>

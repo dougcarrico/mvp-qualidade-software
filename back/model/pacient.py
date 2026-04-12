@@ -5,7 +5,6 @@ class Pacient():
                  sex: int,
                  chestPainType: int,
                  restingBP: int,
-                 cholesterol: int,
                  fastingBS: int,
                  restingECG: int,
                  maxHR: int,
@@ -32,7 +31,6 @@ class Pacient():
         self.sex = sex
         self.chestPainType = chestPainType
         self.restingBP = restingBP
-        self.cholesterol = cholesterol
         self.fastingBS = fastingBS
         self.restingECG = restingECG
         self.maxHR = maxHR

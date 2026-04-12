@@ -15,7 +15,6 @@ class  PreProcessor:
             form.sex,
             form.chestPainType,
             form.restingBP,
-            form.cholesterol,
             form.fastingBS,
             form.restingECG,
             form.maxHR,

@@ -23,6 +23,6 @@ def test_score_modelo():
     evaluator = Evaluator()
     score = evaluator.evaluate(model, Rescaled_X_test, y_test)
 
-    assert score >= 0.88
+    assert score >= 0.87
 
 

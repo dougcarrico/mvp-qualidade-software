@@ -5,7 +5,6 @@ age: 1,
 sex: 0,
 chestPainType: 0,
 restingBP: 0,
-cholesterol: 0,
 fastingBS: 0,
 restingECG: 0,
 maxHR: 0,
@@ -24,7 +23,6 @@ const getForm = () => {
     form.sex = document.getElementById('sex-input').value;
     form.chestPainType = document.getElementById('chestPainType-input').value;
     form.restingBP = document.getElementById('restingBP-input').value;
-    form.cholesterol = document.getElementById('cholesterol-input').value;
     form.fastingBS = document.getElementById('fastingBS-input').value;
     form.restingECG = document.getElementById('restingECG-input').value;
     form.maxHR = document.getElementById('maxHR-input').value;

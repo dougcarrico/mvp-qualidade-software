@@ -8,7 +8,6 @@ class PacientSchema(BaseModel):
     sex: int = 0
     chestPainType: int = 0
     restingBP: int = 120
-    cholesterol: int = 220
     fastingBS: int = 0
     restingECG: int = 0
     maxHR: int = 130
