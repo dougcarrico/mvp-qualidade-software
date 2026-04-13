@@ -1,1 +1,0 @@
-# mvp-qualidade-software
