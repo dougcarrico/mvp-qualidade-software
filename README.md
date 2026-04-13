@@ -8,13 +8,13 @@ Este repositório contém tanto o front-end quanto o back-end, que utiliza um mo
 
 A documentação com os estudos e passo a passo da criação do modelo de machine learning está em: https://github.com/dougcarrico/mvp-qualidade-software/blob/main/Collab_Modelo_MVP.ipynb
 
-## Rodando o Back-end
+## Rodando o projeto
 
-Clonar ou baixar o repositório em sua máquina.
+### Preparar ambiente
 
 **OBS:** Recomendado criar um ambiente virtual do tipo [virtualenv](https://virtualenv.pypa.io/en/latest/installation.html) com a versão 3.13.7 do python. Caso tenha problemas com execução de scripts Windows para a criação do ambiente virtual, ver sobre [Execution Policies](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.5)
 
-Acessar o diretório pai do diretório raiz do projeto. Executar o comando abaixo para criar o ambiente virtual.
+Acessar o diretório onde irá fazer o clone do projeto. Executar o comando abaixo para criar o ambiente virtual.
 ```
 python3.13 -m venv env
 ```
@@ -24,7 +24,12 @@ Utilizar o comando abaixo para ativar o ambiente virtual.
 .\env\Scripts\Activate
 ```
 
-Acessar o diretório "back" pelo terminal.
+Clonar ou baixar o repositório em sua máquina.
+
+
+## Rodando o Back-end
+
+Acessar o diretório "mvp-qualidade-software/back" pelo terminal.
 
 Utilizar o comando abaixo para instalar as libs Python descritas no arquivo 'requirements.txt'.
 ```
@@ -48,5 +53,4 @@ http://127.0.0.1:5000/
 
 ## Rodando o Front-end
 
-Clonar ou baixar o repositório em sua máquina.
-Acessar o diretório "front" e clicar duas vezes no arquivo index.html.
+Acessar o diretório "mvp-qualidade-software/front" e clicar duas vezes no arquivo index.html.
