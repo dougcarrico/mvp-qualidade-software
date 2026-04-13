@@ -1,16 +1,29 @@
 let toasts = [];
 
+let dictionary = {
+    age: 'Idade (Anos)',
+    sex: 'Gênero biológico',
+    chestPainType: 'Tipo de dor no peito',
+    restingBP: 'Pressão arterial em repouso (mm Hg)',
+    fastingBS: 'Glicemia de jejum acima de 120 mg/dl?',
+    restingECG: 'Eletrocardiograma de repouso',
+    maxHR: 'Frequência cardíaca máxima alcançada',
+    exerciseAngina: 'Angina de esforço',
+    oldpeak: 'Depressão do segmento ST',
+    stSlope: 'Inclinação do segmento ST'
+}
+
 let form = {
-age: 1,
-sex: 0,
-chestPainType: 0,
-restingBP: 0,
-fastingBS: 0,
-restingECG: 0,
-maxHR: 0,
-exerciseAngina: 0,
-oldpeak: 0.0,
-stSlope: 0
+    age: 1,
+    sex: 0,
+    chestPainType: 0,
+    restingBP: 0,
+    fastingBS: 0,
+    restingECG: 0,
+    maxHR: 0,
+    exerciseAngina: 0,
+    oldpeak: 0.0,
+    stSlope: 0
 };
 
 /*
@@ -37,12 +50,35 @@ const getForm = () => {
 --------------------------------------------------------------------
 */
 const validateForm = () => {
+    /* Considera que estará validado, se encontrar algum erro vai ficar false */
+    validated = true;
+
+    /* Transforma dados do objeto form em array para iterar */
+    keys = Object.entries(form);
+
     console.log('validando dados...');
-    if (!form.age) {
-        return false;
-    } else {
-        return true;
+
+    for (var i = 0; i < keys.length; i++){
+        /* Define a propriedade a ser verificada */
+        property = keys[i][0];
+
+        /* Se a propriedade estiver vazia */
+        if (!form[property]) {
+
+        validated = false;
+
+        /* Mostra toast */
+        showToast('error', `Erro - O campo "${dictionary[property]}" precisa estar preenchido`);
+        console.log(`Erro - O campo "${dictionary[property]}" precisa estar preenchido`);
+
+        /* Limpa o conteúdo do resultado */
+        reloadOutcome();
+
+        break;
+        }
     }
+
+    return validated;
 }
 
 const createFormData = () => {
@@ -80,8 +116,8 @@ const postForm = (formData) => {
                 showOutcome(data.outcome);
             }
             else {
-                showToast('error', `Erro ao enviar formulário`);
-                console.log('Erro ao enviar formulário');
+                showToast('error', `Erro no processamento dos dados`);
+                console.log('Erro no processamento dos dados');
             }    
         })
         .catch((error) => {
@@ -112,9 +148,6 @@ const analise = () => {
     
     if (validateForm()) {
         sendForm();
-    } else {
-        showToast('error', 'Erro de validação');
-        console.log('erro de validação');
     }
 }
 
@@ -168,18 +201,23 @@ Função para exibir resultado
 */
 const showOutcome = (outcome) => {
 
-    /* Define atributos do toast e seu conteúdo */
+    /* Define div que será inserido o outcome */
     let outcomeDiv = document.getElementById("outcome");
 
-    /* Adiciona classe sucesso no div */
-    outcomeDiv.classList.add('success');
-    
     if (outcome == 1) {
-        outcomeDiv.textContent = 'Possui doença cardíaca';
+        /* Adiciona texto no div */
+        outcomeDiv.innerHTML = '<strong>Possui</strong> doença cardíaca';
     } else {
-        outcomeDiv.textContent = 'Não possui doença cardíaca';
+        /* Adiciona texto no div */
+        outcomeDiv.innerHTML = '<strong>Não possui</strong> doença cardíaca';
     }
-
-
     
 }
+
+const reloadOutcome = () => {
+    /* Define div que será inserido o outcome */
+    let outcomeDiv = document.getElementById("outcome");
+
+    outcomeDiv.textContent = 'Clique em avaliar para gerar um resultado';
+}
+
