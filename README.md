@@ -27,7 +27,7 @@ Utilizar o comando abaixo para ativar o ambiente virtual.
 Clonar ou baixar o repositório em sua máquina.
 
 
-## Rodando o Back-end
+### Rodando o Back-end
 
 Acessar o diretório "mvp-qualidade-software/back" pelo terminal.
 
@@ -51,6 +51,6 @@ Abrir a URL abaixo no navegador.
 http://127.0.0.1:5000/
 ```
 
-## Rodando o Front-end
+### Rodando o Front-end
 
 Acessar o diretório "mvp-qualidade-software/front" e clicar duas vezes no arquivo index.html.
